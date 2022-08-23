@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <div class="container">
+            
+{% for item in object_list %}
+<div class="card" style="width: 18rem;">
+               
+    <div class="card-body">
+      <h5 class="">{{item.title}}</h5>
+      <p class="card-text">{{item.content}}<br>{{item.postdate}}<br>{{item.category}}</p>
+      <a href="{% url 'detail' item.pk%}" class="btn btn-primary">詳細へ</a>
+      <a href="{% url 'update' item.pk%}" class="btn btn-primary">編集へ</a>
+      <a href="{% url 'delete' item.pk%}" class="btn btn-primary">削除へ</a>
+    </div>
+  </div>
+{% endfor %}
